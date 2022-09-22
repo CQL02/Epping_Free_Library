@@ -37,7 +37,7 @@ c = conn.cursor()
 #         123456
 #     )""")
 
-c.execute("ALTER TABLE books ADD genre text")
+c.execute("ALTER TABLE books RENAME COLUMN genre TO genre1")
 
 conn.commit()
 conn.close()

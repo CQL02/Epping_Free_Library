@@ -21,9 +21,18 @@ def delete_handler():
 
 def check_handler():
     list_page = Tk()
+
+    Label(list_page, text="ID", width=5, fg="white", bg="black").grid(row=1,column=1, sticky=W)
+    Label(list_page, text="NAME", width=20, fg="white", bg="black").grid(row=1,column=2, sticky=W)
+    Label(list_page, text="CONTACT", width=20, fg="white", bg="black").grid(row=1,column=3, sticky=W)
+
     lists = staff.staffs_list()
+    i=2
     for list in lists:
-        Label(list_page, text=list).pack()
+        Label(list_page, text=list[0], width=5).grid(row=i,column=1, sticky=W)
+        Label(list_page, text=list[1], width=20).grid(row=i,column=2, sticky=W)
+        Label(list_page, text=list[3], width=20).grid(row=i,column=3, sticky=W)
+        i+=1
     list_page.mainloop()
 
 
@@ -40,7 +49,7 @@ password_entry = Entry(manage_staff, width=50, show="*")
 password_entry.grid(row=4,column=2)
 
 Label(manage_staff, text="Contact: ").grid(row=5,column=1)
-contact_entry = Entry(manage_staff, width=50, show="*")
+contact_entry = Entry(manage_staff, width=50)
 contact_entry.grid(row=5,column=2)
 
 validation_label = Label(manage_staff, text="")
